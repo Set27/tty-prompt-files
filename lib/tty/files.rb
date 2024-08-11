@@ -1,21 +1,34 @@
 # frozen_string_literal: true
 
 require_relative "files/version"
+require "pry"
 
 module TTY
   class Prompt
     def select_element_from_file_system(pattern: "*", path: ".", text: "", options: {})
-      elements = get_all_elements_from_path(pattern, path)
+      pathnames = get_pathnames_from_path(pattern, path)
 
-      selected_element = self.select(text, elements)
+      file_names = pathnames.map do |pathname|
+        pathname.basename.to_s
+      end
 
-      selected_element.realpath.to_path
+      selected_element = self.select(text, file_names)
+
+      get_selected_element_full_path(pathnames, selected_element)
     end
 
     private
 
-    def get_all_elements_from_path(pattern, path)
-      Pathname.glob(pattern, base: path)
+    def get_pathnames_from_path(pattern, path)
+      pathnames = Pathname.glob(path + "/" + pattern)
+
+      pathnames.map(&:realpath)
+    end
+
+    def get_selected_element_full_path(pathnames, selected_element)
+      selected_element_pathname = pathnames.find { |pathname| pathname.basename.to_s == selected_element }
+
+      selected_element_pathname.realpath.to_s
     end
   end
 end
