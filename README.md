@@ -1,10 +1,8 @@
 # TTY::Prompt::Files
 
-TTY-Prompt-files is extension for [tty-prompt](https://github.com/piotrmurach/tty-prompt) gem that allow interactive selection elements from file system.
+TTY-Prompt-files is extension for [tty-prompt](https://github.com/piotrmurach/tty-prompt) gem that allow interactive selection elements from file system and get absolute path.
 
 ## Usage
-
-**For now**, library support selection **only** non hidden **files** (directories is currently not supported).
 
 ```rb
 prompt = TTY::Prompt.new
@@ -17,10 +15,10 @@ After element is selected, output will be a element full path.
 `select_element_from_file_system` has 3 parameters:
 
 ```rb
-prompt.select_element_from_file_system((pattern: "*", path: ".", text: ""))
+prompt.select_element_from_file_system(pattern: "*", path: ".", text: "")
 ```
 
-`pattern` is determining for what file will be output based on matching the pattern.\
+`pattern` is determining for what file will be output based on matching the pattern. If you want to display hidden files, use `"{.[^\.]*,*}"` pattern.\
 `path` is determining path of the directory, can be relative or absolute. **Note**: relative **should not** end with `/`.\
 `text` is text user will see along with elements.
 
