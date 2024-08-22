@@ -2,6 +2,10 @@
 
 TTY-Prompt-files is extension for [tty-prompt](https://github.com/piotrmurach/tty-prompt) gem that allow interactive selection elements from file system and get absolute path.
 
+## Note!
+
+Be careful to use library before first major version. It does not support backward compatibility.
+
 ## Usage
 
 ```rb
