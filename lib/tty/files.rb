@@ -1,7 +1,6 @@
 # frozen_string_literal: true
 
 require_relative "files/version"
-require "pry"
 
 module TTY
   class Prompt
