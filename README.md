@@ -9,6 +9,8 @@ Be careful to use library before first major version. It does not support backwa
 ## Usage
 
 ```rb
+require 'tty-prompt-files'
+
 prompt = TTY::Prompt.new
 
 prompt.select_element_from_file_system
