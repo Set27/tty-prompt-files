@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 require_relative "files/version"
+require 'pry'
 
 module TTY
   class Prompt
@@ -19,7 +20,11 @@ module TTY
     private
 
     def get_pathnames_from_path(pattern, path)
-      pathnames = Pathname.glob(path + "/" + pattern)
+      if path[-1] != '/'
+        pathnames = Pathname.glob(path + "/" + pattern)
+      else
+        pathnames = Pathname.glob(path + pattern)
+      end
 
       pathnames.map(&:realpath)
     end
