@@ -18,15 +18,17 @@ prompt.select_element_from_file_system
 
 After element is selected, output will be a element full path.
 
-`select_element_from_file_system` has 3 parameters:
+`select_element_from_file_system` has 5 parameters:
 
 ```rb
-prompt.select_element_from_file_system(pattern: "*", path: ".", text: "")
+prompt.select_element_from_file_system(text: "", pattern: "*", path: ".", multi_select: false, **options)
 ```
 
-`pattern` is determining for what file will be output based on matching the pattern. If you want to display hidden files, use `"{.[^\.]*,*}"` pattern.\
-`path` is determining path of the directory, can be relative or absolute. **Note**: relative **should not** end with `/`.\
-`text` is text user will see along with elements.
+`text` is text user will see along with elements. By default: `""`.\
+`pattern` is determining for what file will be output based on matching the pattern. If you want to display hidden files, use `"{.[^\.]*,*}"` pattern. By default: `"*"`.\
+`path` is determining path of the directory, can be relative or absolute. By default: `"."`.\
+`multi_select` refers to original [API](https://github.com/piotrmurach/tty-prompt?tab=readme-ov-file#263-multi_select). By default: `false`.
+`**options` you can add any params from original [API](https://github.com/piotrmurach/tty-prompt?tab=readme-ov-file#2621-cycle). No default value.\
 
 ## Contributing
 
