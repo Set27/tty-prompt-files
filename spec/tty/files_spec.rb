@@ -24,6 +24,15 @@ RSpec.describe TTY::Files do
       allow(Pathname).to receive(:glob).and_return([file_txt_pathname, file_pdf_pathname])
     end
 
+    it "return file_txt absolute path" do
+      prompt.input << press_enter
+      prompt.input.rewind
+
+      result = prompt.select_element_from_file_system(path: test_folder_relative_path)
+
+      expect(result).to eq(file_txt_abosolute_path)
+    end
+
     it "return file_pdf absolute path" do
       prompt.input << press_down << press_enter
       prompt.input.rewind
