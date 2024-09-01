@@ -4,6 +4,7 @@ require "tty/files"
 require "tty-prompt"
 require "tty/prompt/test"
 require "pathname"
+require "pry"
 
 RSpec.configure do |config|
   # Enable flags like --only-failures and --next-failure
