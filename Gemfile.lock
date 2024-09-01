@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    tty-prompt-files (0.1.2)
+    tty-prompt-files (1.0.0)
       tty-prompt (~> 0.23.1)
 
 GEM
